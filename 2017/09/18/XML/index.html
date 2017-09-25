@@ -97,17 +97,17 @@
 
 
 
-<meta name="description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML">
+<meta name="description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据读取之XML">
 <meta property="og:url" content="http://yoursite.com/2017/09/18/XML/index.html">
 <meta property="og:site_name" content="Dioooooooor">
-<meta property="og:description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML">
+<meta property="og:description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-18T15:42:18.167Z">
+<meta property="og:updated_time" content="2017-09-25T15:31:11.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据读取之XML">
-<meta name="twitter:description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML">
+<meta name="twitter:description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构">
 
 
 
@@ -353,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  103字
+                  823字
                 </span>
               
 
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -390,7 +390,58 @@
       
 
       
-        <p style="text-indent:2em">在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML</p>
+        <p style="text-indent:2em">在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构化文档信息的有力工具。XML是一种简单的数据存储语言，使用一系列简单的标记描述数据，而这些标记可以用方便的方式建立，虽然XML占用的空间比二进制数据要占用更多的空间，但XML极其简单易于掌握和使用。微软也提供了一系列类库来倒帮助我们在应用程序中存储XML文件。</p>
+
+<a id="more"></a>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><a href="https://baike.baidu.com/item/%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/2885849?fr=aladdin&amp;fromid=86251&amp;fromtitle=xml" target="_blank" rel="external">百度百科</a></li>
+<li><a href="http://www.runoob.com/xml/xml-intro.html" target="_blank" rel="external">菜鸟教程</a></li>
+<li><a href="http://www.w3school.com.cn/xml/xml_intro.asp" target="_blank" rel="external">W3school</a></li>
+</ul>
+<h2 id="读取方式"><a href="#读取方式" class="headerlink" title="读取方式"></a>读取方式</h2><ul>
+<li>针对XML文档的应用编程接口中，一般有两种模型：W3C制定的DOM(Document Object Method，文档对象模型)和流模型。流模型又分为两种变体:”推”模型（XML的简单API）和”拉”模型（.NET中的流模型）。</li>
+<li>XML模型表格</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>“推”模型</th>
+<th>“拉”模型</th>
+<th>DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>“推”模型也就是常说的SAX，SAX是一种靠事件驱动的模型。它每发现一个节点就用“推”模型引发一个事件。</td>
+<td>．NET在中对XML解析是基于“拉”模型的实现方案。“拉”模型在遍历文档时会把感兴趣的部分从读取器中拉出来，不需要引发事件。在.NET中“拉”模型通过XML阅读器（XMLTextReader类）来实现</td>
+<td>NET中使用XML DOM分析器（XMLDocument）实现DOM模型</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>必须编写这些事件的处理程序，很麻烦且复杂。不能对文档进行随机访问和修改。</td>
+<td>XMLTextReader类是只读的，向前的，不能再文档中执行向后导航操作。</td>
+<td>需要一次性加载整个文档到内存中，对于大型文档会造成资源问题。</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>不需要把XML文档完全加载到内存中，是一个分析大型XML文档的高效API。</td>
+<td>允许我们以编程的方式访问文档，大大提高了灵活性，可以选择性处理节点，内存中只保存当前节点。XMLTextReader类能检验文档是否格式良好，如果不是良好格式的XML该类在读取过程中会抛出XMLException异常。</td>
+<td>允许编辑和更新XML文档，可以随机访问文档中的数据，可以使用XPath查询。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><ul>
+<li><a href="https://www.baidu.com/link?url=TDsgz-0qFGgy0StLT820Crew64rY5n16iooXZ1Rt3jykruwNxUayrXn-G_q-EgcJ7dugLpWM63wOzeWfUwmhZS7tEcPV2sKqW3RLUBBtfOy&amp;wd=&amp;eqid=d2365a820000c1480000000359c01204" target="_blank" rel="external">System.Xml</a><h3 id="主要类"><a href="#主要类" class="headerlink" title="主要类"></a>主要类</h3></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmldocument(v=vs.110" target="_blank" rel="external">XmlDocument</a>.aspx)</li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmltextreader(v=vs.110" target="_blank" rel="external">XmlTextReader</a>.aspx)</li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmltextwriter(v=vs.110" target="_blank" rel="external">XmlTextWriter</a>.aspx)</li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.linq(v=vs.110" target="_blank" rel="external">System.Xml.Linq</a>.aspx)</li>
+</ul>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
+<li>XmlDocument<br>使用XmlDocument是一种基于文档结构模型的方式来读取XML文件.在XML文件中,我们可以把XML看作是由文档声明(Declare),元素(Element),属性(Attribute),文本(Text)等构成的一个树.最开始的一个结点叫作根结点,每个结点都可以有自己的子结点.得到一个结点后,可以通过一系列属性或方法得到这个结点的值或其它的一些属性.</li>
+</ol>
 
       
     </div>
@@ -424,6 +475,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/25/Unity优化/" rel="prev" title="【转载】Unity优化">
+                【转载】Unity优化 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -475,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -494,7 +558,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -547,6 +611,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取方式"><span class="nav-number">2.</span> <span class="nav-text">读取方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-number">3.</span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间"><span class="nav-number">3.1.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要类"><span class="nav-number">3.2.</span> <span class="nav-text">主要类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">3.3.</span> <span class="nav-text">使用方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       	
 	
@@ -585,7 +665,7 @@
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
     <span title="Site words total count">
-      2.3k
+      10.6k
     </span>
   
 </div>
