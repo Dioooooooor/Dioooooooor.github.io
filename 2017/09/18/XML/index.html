@@ -81,7 +81,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据读取,XML," />
 
 
 
@@ -98,13 +98,14 @@
 
 
 <meta name="description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构">
+<meta name="keywords" content="数据读取,XML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据读取之XML">
 <meta property="og:url" content="http://yoursite.com/2017/09/18/XML/index.html">
 <meta property="og:site_name" content="Dioooooooor">
 <meta property="og:description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-25T15:31:11.616Z">
+<meta property="og:updated_time" content="2017-10-24T16:48:59.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据读取之XML">
 <meta name="twitter:description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构">
@@ -353,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  823字
+                  1,602字
                 </span>
               
 
@@ -369,12 +370,12 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  6 分钟
                 </span>
               
             </div>
           
-
+	
           
 
         </div>
@@ -434,13 +435,46 @@
 </table>
 <h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><ul>
 <li><a href="https://www.baidu.com/link?url=TDsgz-0qFGgy0StLT820Crew64rY5n16iooXZ1Rt3jykruwNxUayrXn-G_q-EgcJ7dugLpWM63wOzeWfUwmhZS7tEcPV2sKqW3RLUBBtfOy&amp;wd=&amp;eqid=d2365a820000c1480000000359c01204" target="_blank" rel="external">System.Xml</a><h3 id="主要类"><a href="#主要类" class="headerlink" title="主要类"></a>主要类</h3></li>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmldocument(v=vs.110" target="_blank" rel="external">XmlDocument</a>.aspx)</li>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmltextreader(v=vs.110" target="_blank" rel="external">XmlTextReader</a>.aspx)</li>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmltextwriter(v=vs.110" target="_blank" rel="external">XmlTextWriter</a>.aspx)</li>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.linq(v=vs.110" target="_blank" rel="external">System.Xml.Linq</a>.aspx)</li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmldocument(v=vs.110).aspx" target="_blank" rel="external">XmlDocument</a></li>
 </ul>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
-<li>XmlDocument<br>使用XmlDocument是一种基于文档结构模型的方式来读取XML文件.在XML文件中,我们可以把XML看作是由文档声明(Declare),元素(Element),属性(Attribute),文本(Text)等构成的一个树.最开始的一个结点叫作根结点,每个结点都可以有自己的子结点.得到一个结点后,可以通过一系列属性或方法得到这个结点的值或其它的一些属性.</li>
+<ul>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmltextreader(v=vs.110).aspx" target="_blank" rel="external">XmlTextReader</a></li>
+</ul>
+<ul>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.xmltextwriter(v=vs.110).aspx" target="_blank" rel="external">XmlTextWriter</a></li>
+</ul>
+<ul>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/system.xml.linq(v=vs.110).aspx" target="_blank" rel="external">System.Xml.Linq</a></li>
+</ul>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="创建XML"><a href="#创建XML" class="headerlink" title="创建XML"></a>创建XML</h4><ol>
+<li><p>XmlSerializer序列化创建</p>
+<ol>
+<li><p>创建XML对象</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System.Collections;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"><span class="keyword">using</span> System.Xml;</div><div class="line"><span class="keyword">using</span> System.Xml.Serialization;</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> <span class="title">Dioooooooor.Data</span></div><div class="line">&#123;</div><div class="line">    </div><div class="line">    [<span class="meta">XmlRootAttribute(<span class="meta-string">"Profile"</span>, IsNullable = false, Namespace = <span class="meta-string">"Dioooooooor.Data"</span>)</span>]    <span class="comment">// 当该类为Xml根节点时，以此为根节点名称。</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Profile</span></div><div class="line">    &#123;</div><div class="line">        [<span class="meta">XmlAttribute(<span class="meta-string">"功能名"</span>)</span>]   <span class="comment">// 表现为Xml节点属性。&lt;... 功能名="..."/&gt;                 </span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Function;</div><div class="line"></div><div class="line">        [<span class="meta">XmlArrayAttribute(<span class="meta-string">"人物"</span>)</span>]    <span class="comment">// 表现为Xml层次结构，根为"人物"，其所属的每个该集合节点元素名为类名。&lt;人物&gt;&lt;Preson ... /&gt;&lt;Preson ... /&gt;&lt;/人物&gt;</span></div><div class="line">        <span class="keyword">public</span> List&lt;Preson&gt; Preson = <span class="keyword">new</span> List&lt;Data.Preson&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    [<span class="meta">XmlRootAttribute(<span class="meta-string">"Preson"</span>)</span>]</div><div class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Preson</span></div><div class="line">    &#123;</div><div class="line"></div><div class="line">        [<span class="meta">XmlElementAttribute(<span class="meta-string">"姓名"</span>, IsNullable = false)</span>]      <span class="comment">// 表现为Xml节点。&lt;姓名&gt;...&lt;/姓名&gt;</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Name;</div><div class="line"></div><div class="line">        [<span class="meta">XmlElementAttribute(<span class="meta-string">"年龄"</span>, IsNullable = false)</span>]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">int</span> Age;</div><div class="line"></div><div class="line">        [<span class="meta">XmlElementAttribute(<span class="meta-string">"人物描述"</span>, IsNullable = false)</span>]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Describe;</div><div class="line"></div><div class="line">        [<span class="meta">XmlArrayAttribute(<span class="meta-string">"相关人物"</span>)</span>]</div><div class="line">        <span class="keyword">public</span> List&lt;AboutPreson&gt; AboutPreson = <span class="keyword">new</span> List&lt;Data.AboutPreson&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    [<span class="meta">XmlRootAttribute(<span class="meta-string">"AboutPreson"</span>)</span>]</div><div class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AboutPreson</span></div><div class="line">    &#123;</div><div class="line">        [<span class="meta">XmlElementAttribute(<span class="meta-string">"姓名"</span>, IsNullable = false)</span>]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Name;</div><div class="line"></div><div class="line">        [<span class="meta">XmlElementAttribute(<span class="meta-string">"人物关系"</span>, IsNullable = false)</span>]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Relationship;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>给XML对象赋值</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Profile <span class="title">GetProfile</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Profile profile = <span class="keyword">new</span> Profile();</div><div class="line"></div><div class="line">    <span class="keyword">var</span> viewport = GameObject.Find(<span class="string">"Viewport"</span>);</div><div class="line">    <span class="keyword">foreach</span> (Transform transform <span class="keyword">in</span> viewport.transform)</div><div class="line">    &#123;</div><div class="line">        Preson preson = <span class="keyword">new</span> Preson();</div><div class="line">        preson.Name = transform.Find(<span class="string">"name"</span>).Find(<span class="string">"InputName"</span>).Find(<span class="string">"Text"</span>).</div><div class="line">            GetComponent&lt;UnityEngine.UI.Text&gt;().text;</div><div class="line">        preson.Age = <span class="keyword">int</span>.Parse(transform.Find(<span class="string">"age"</span>).Find(<span class="string">"InputAge"</span>).Find(<span class="string">"Text"</span>).</div><div class="line">            GetComponent&lt;UnityEngine.UI.Text&gt;().text);</div><div class="line">        preson.Describe = transform.Find(<span class="string">"describe"</span>).Find(<span class="string">"InputDescribe"</span>).Find(<span class="string">"Text"</span>).</div><div class="line">            GetComponent&lt;UnityEngine.UI.Text&gt;().text;</div><div class="line">        <span class="keyword">var</span> aboutPresonArray = transform.Find(<span class="string">"aboutPreson"</span>).Find(<span class="string">"InputDescribe"</span>).</div><div class="line">        Find(<span class="string">"Text"</span>).GetComponent&lt;UnityEngine.UI.Text&gt;().text.Split(<span class="string">'。'</span>);</div><div class="line">        <span class="keyword">foreach</span>(<span class="keyword">var</span> a <span class="keyword">in</span> aboutPresonArray)</div><div class="line">        &#123;</div><div class="line">            AboutPreson aboutPreson = <span class="keyword">new</span> AboutPreson();</div><div class="line">            aboutPreson.Name = a.Split(<span class="string">'，'</span>)[<span class="number">0</span>];</div><div class="line">            aboutPreson.Relationship = </div><div class="line">            a.Split(<span class="string">'，'</span>)[<span class="number">0</span>].Length &gt; <span class="number">1</span> ? a.Split(<span class="string">'，'</span>)[<span class="number">1</span>] : a.Split(<span class="string">'，'</span>)[<span class="number">0</span>];</div><div class="line">            preson.AboutPreson.Add(aboutPreson);</div><div class="line">        &#125;</div><div class="line">        profile.Preson.Add(preson);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> profile;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>序列化对象生成XML</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CreateXML</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">string</span> path = Application.dataPath + <span class="string">"/XML/GintamaXML_Object.xml"</span>;</div><div class="line">    Debug.LogError(path);</div><div class="line">    <span class="keyword">if</span> (!File.Exists(path))</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> Profile = DataOperate.GetInstance().GetProfile();</div><div class="line">        <span class="keyword">if</span> (Profile.Preson.Count == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line"></div><div class="line">        <span class="keyword">using</span> (TextWriter sw = <span class="keyword">new</span> StreamWriter(path))</div><div class="line">        &#123;</div><div class="line">            XmlSerializer xz = <span class="keyword">new</span> XmlSerializer(Profile.GetType());</div><div class="line">            xz.Serialize(sw, Profile);</div><div class="line">            sw.Close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4.运行后生成的XML</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">Profile</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span> <span class="attr">xmlns</span>=<span class="string">"Dioooooooor.Data"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">人物</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Preson</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">姓名</span>&gt;</span>坂田银时<span class="tag">&lt;/<span class="name">姓名</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">年龄</span>&gt;</span>25-29岁<span class="tag">&lt;/<span class="name">年龄</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">人物描述</span>&gt;</span></div><div class="line">      坂田银时，日本动漫《银魂》中的主人公。他是活跃在攘夷后期创造无数传奇的革命家，因威震敌我而被称为“白夜叉”。现住歌舞伎町一条街，与神乐、志村新八经营万事屋，是个坚守自己武士道的男子汉。</div><div class="line">      <span class="tag">&lt;/<span class="name">人物描述</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">相关人物</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">AboutPreson</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">姓名</span>&gt;</span>神乐<span class="tag">&lt;/<span class="name">姓名</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">人物关系</span>&gt;</span>同事<span class="tag">&lt;/<span class="name">人物关系</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">AboutPreson</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">AboutPreson</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">姓名</span>&gt;</span>志村新八<span class="tag">&lt;/<span class="name">姓名</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">人物关系</span>&gt;</span>同事<span class="tag">&lt;/<span class="name">人物关系</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">AboutPreson</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">相关人物</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">Preson</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Preson</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">姓名</span>&gt;</span>神乐<span class="tag">&lt;/<span class="name">姓名</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">年龄</span>&gt;</span>14岁<span class="tag">&lt;/<span class="name">年龄</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">人物描述</span>&gt;</span></div><div class="line">      神乐是日本漫画家空知英秋作品《银魂》 的女主角。是宇宙最强的战斗种族“夜兔族”的一员。 为了打工赚钱而来到江户，但是被流氓利用雇佣，在厌倦了打斗逃出黑社会组织的时候遇到了银时与新八，之后留了在万事屋打工。</div><div class="line">      <span class="tag">&lt;/<span class="name">人物描述</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">相关人物</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">AboutPreson</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">姓名</span>&gt;</span>坂田银时<span class="tag">&lt;/<span class="name">姓名</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">人物关系</span>&gt;</span>同事<span class="tag">&lt;/<span class="name">人物关系</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">AboutPreson</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">AboutPreson</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">姓名</span>&gt;</span>志村新八<span class="tag">&lt;/<span class="name">姓名</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">人物关系</span>&gt;</span>同事<span class="tag">&lt;/<span class="name">人物关系</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">AboutPreson</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">相关人物</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">Preson</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">人物</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Profile</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>参考<ul>
+<li><a href="http://www.cnblogs.com/KeithWang/archive/2012/02/22/2363443.html" target="_blank" rel="external">C#对象XML序列化（一）：序列化方法和常用特性</a></li>
+<li><a href="http://www.cnblogs.com/yukaizhao/archive/2011/07/22/xml-serialization.html" target="_blank" rel="external">XmlSerializer 对象的Xml序列化和反序列化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="读取XML"><a href="#读取XML" class="headerlink" title="读取XML"></a>读取XML</h4><ol>
+<li><p>XmlSerializer反序列化读取</p>
+</li>
+<li><p>XmlDocument<br>使用XmlDocument是一种基于文档结构模型的方式来读取XML文件.在XML文件中,我们可以把XML看作是由文档声明(Declare),元素(Element),属性(Attribute),文本(Text)等构成的一个树.最开始的一个结点叫作根结点,每个结点都可以有自己的子结点.得到一个结点后,可以通过一系列属性或方法得到这个结点的值或其它的一些属性.</p>
+</li>
 </ol>
 
       
@@ -456,6 +490,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据读取/" rel="tag"># 数据读取</a>
+          
+            <a href="/tags/XML/" rel="tag"># XML</a>
+          
+        </div>
       
 
       
@@ -476,8 +518,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/25/Unity优化/" rel="prev" title="【转载】Unity优化">
-                【转载】Unity优化 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/25/Unity优化/" rel="prev" title="【转载】Unity性能优化">
+                【转载】Unity性能优化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -571,7 +613,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -620,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取方式"><span class="nav-number">2.</span> <span class="nav-text">读取方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-number">3.</span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间"><span class="nav-number">3.1.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要类"><span class="nav-number">3.2.</span> <span class="nav-text">主要类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">3.3.</span> <span class="nav-text">使用方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取方式"><span class="nav-number">2.</span> <span class="nav-text">读取方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-number">3.</span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间"><span class="nav-number">3.1.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要类"><span class="nav-number">3.2.</span> <span class="nav-text">主要类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">3.3.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建XML"><span class="nav-number">3.3.1.</span> <span class="nav-text">创建XML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读取XML"><span class="nav-number">3.3.2.</span> <span class="nav-text">读取XML</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -665,7 +707,7 @@
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
     <span title="Site words total count">
-      10.6k
+      11.4k
     </span>
   
 </div>
