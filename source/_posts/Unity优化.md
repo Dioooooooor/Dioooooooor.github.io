@@ -1,8 +1,11 @@
 ---
 title: 【转载】Unity性能优化
 date: 2017-09-25 23:19:18
+categories:
+- Unity
 tags:
 - Unity性能优化
+cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityBlackLarge.png
 ---
 
 转载声明：原文出自[妈妈说女孩子要自立自强](http://my.csdn.net/candycat1992)的[【Unity技巧】Unity中的优化技术](http://blog.csdn.net/candycat1992/article/details/42127811)，如有侵权，可以联系本人删除。

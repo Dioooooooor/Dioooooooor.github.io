@@ -1,9 +1,12 @@
 ---
 title: 数据读取之PlayerPrefs
 data: <strong> 2017.9.15 </strong>
+categories:
+- Unity
 tags: 
 - 数据读取
 - PlayerPrefs
+cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityBlackLarge.png
 ---
 <p style="text-indent:2em">在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成...，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等，本章我们介绍的就是Unity自带的PlayerPrefs存储方式。</p>
 

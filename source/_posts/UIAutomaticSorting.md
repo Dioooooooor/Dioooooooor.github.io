@@ -1,33 +1,36 @@
 ---
 title: UGUI之Content自动排序与页面滑动
 date: <strong> 2017-09-16 23:10:55 </strong>
+categories:
+- Unity
 tags: 
 - UGUI
 - GridLayoutGroup
 - ContentSizeFitter
+cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityBlackLarge.png
 ---
 
 ## 功能需求：
 * **UI界面的内容可以自动排序，超出界面的部分可以滑动查看**
-![](http://ow91ve7gm.bkt.clouddn.com/17-9-17/49456984.jpg)
+![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/49456984.jpg)
 
 <!-- more -->
 
 ## 实现方法：
 ### 右键创建Scroll View组件
-![](http://ow91ve7gm.bkt.clouddn.com/17-9-16/47083771.jpg)
+![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/47083771.jpg)
 
 ### 修改Scroll View组件的大小，我这边设置的为全屏，并把背景设为了黑色
-![](http://ow91ve7gm.bkt.clouddn.com/17-9-16/2599429.jpg)
+![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/2599429.jpg)
 
 ### 把Scroll View组件上的Scroll Rect组件的Content换成Viewport,并且将Viewport设置为null，然后设置滑动条的可视条件，我选择的是permanent(常驻)，这样滑动条就不会隐藏
-![](http://ow91ve7gm.bkt.clouddn.com/17-9-17/54708227.jpg)
+![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/54708227.jpg)
 
 ### 在Viewport上添加ContentSizeFitter和GridLayoutGroup脚本，并且将ContentSizeFitter组件上的Horizontal Fit和Vertical Fit选项改成Preferred Size（首选大小）
-![](http://ow91ve7gm.bkt.clouddn.com/17-9-17/40746207.jpg)
+![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/40746207.jpg)
 
 ### 完成上面的设置后，一个最基本的可拖动的自动排序界面设置就已经完成了，我们来验证一下，为了验证方便，我们在Content上加上Image，让内容可视化，然后调整GridLayoutGroup脚本上的Cell Size,让Content更大，然后我们运行程序测试
-![](http://ow91ve7gm.bkt.clouddn.com/17-9-17/49456984.jpg)
+![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/49456984.jpg)
 
 ## 更多细节
 ### 步骤3
@@ -40,7 +43,7 @@ tags:
 
 
 * 另外，也可以直接在Scroll View上添加Mask,这样就不用设置这个选项了。
-    ![](http://ow91ve7gm.bkt.clouddn.com/17-9-17/58299777.jpg)
+    ![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/58299777.jpg)
 * **[Visibility](https://docs.unity3d.com/ScriptReference/UI.ScrollRect.ScrollbarVisibility.html)** 滑动条可视化条件
     * permanent(常驻)
     * Auto Hide(当显示的目标超出可视范围时显示,并且不会改变可视范围)
