@@ -1,6 +1,8 @@
 ---
 title: 在VS中开启"高级保存选项",设置编码格式和行尾
 date: 2017-12-07 21:52:03
+categories:
+- Visual Studio
 tags: 
 - IDE
 - 备忘
