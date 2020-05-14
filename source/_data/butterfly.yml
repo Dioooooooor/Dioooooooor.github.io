@@ -5,15 +5,12 @@
 # xxx || icon:
 #   xxx || 連結 || icon
 menu:
-  Home: / || fa fa-home
-  Archives: /archives/ || fa fa-archive
-  Tags: /tags/ || fa fa-tags
-  Categories: /categories/ || fa fa-folder-open
-  Link: /link/ || fa fa-link
-  About: /about/ || fa fa-heart
-  List||fa fa-list:
-    - Music || /music/ || fa fa-music
-    - Movie || /movies/ || fa fa-film
+  首页: / || fa fa-home
+  记录: /recording/ || fa fa-archive
+  归档: /archives/ || fa fa-archive
+  标签: /tags/ || fa fa-tags
+  分类: /categories/ || fa fa-folder-open
+  我: /about/ || fa fa-heart
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
@@ -48,9 +45,7 @@ copy:
 #   icon: link || the description
 # ---------------
 social:
-  fa fa-github: https://github.com/jerryc127 || Github
-  fa fa-envelope: mailto:xxxxxxx@gmail.com || Email
-  fa fa-rss: /atom.xml || RSS
+  fa fa-github: https://github.com/Dioooooooor/ || Github
 
 ####    search    ####
 # Algolia search
@@ -102,12 +97,12 @@ mermaid:
 
 # Favicon
 # ---------------
-favicon: /img/favicon.png
+favicon: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/20200514103004.png
 
 # Post info settings
 # ---------------
 avatar:
-  img: /img/avatar.png
+  img: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/20200514103004.png
   effect: false # 頭像會一直轉圈
 
 # the banner image of index
