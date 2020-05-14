@@ -6,7 +6,6 @@
 #   xxx || 連結 || icon
 menu:
   首页: / || fa fa-home
-  记录: /recording/ || fa fa-archive
   归档: /archives/ || fa fa-archive
   标签: /tags/ || fa fa-tags
   分类: /categories/ || fa fa-folder-open
