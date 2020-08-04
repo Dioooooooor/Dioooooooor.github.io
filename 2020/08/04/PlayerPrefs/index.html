@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数据读取之PlayerPrefs | Dioooooooor</title><meta name="description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成...，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等，本章我们介绍的就是Unity自带的PlayerPrefs存储方式。    官方描述Stores and accesses player preferences between game"><meta name="keywords" content="数据读取,PlayerPrefs"><meta name="author" content="Dioooooooor"><meta name="copyright" content="Dioooooooor"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://gitee.com/dioooooooor/ImageHosting/raw/master//20200514103004.png"><link rel="canonical" href="https://dioooooooor.github.io/2020/08/04/PlayerPrefs/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="IgnqwERk0g4Iq2K2TIcHbRaVu0-6Zxc2dHPRJulgQjA"/><meta name="baidu-site-verification" content="bbKG6pQuZv"/><meta property="og:type" content="article"><meta property="og:title" content="数据读取之PlayerPrefs"><meta property="og:url" content="https://dioooooooor.github.io/2020/08/04/PlayerPrefs/"><meta property="og:site_name" content="Dioooooooor"><meta property="og:description" content="在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成...，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等，本章我们介绍的就是Unity自带的PlayerPrefs存储方式。    官方描述Stores and accesses player preferences between game"><meta property="og:image" content="https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png"><meta property="article:published_time" content="2020-08-04T03:43:04.083Z"><meta property="article:modified_time" content="2020-08-04T12:12:10.624Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-2310627957185343',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a636984a0038eb1f5cdf87e4e81cea97";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-165966274-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-165966274-1');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-08-04 20:12:10'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="https://gitee.com/dioooooooor/ImageHosting/raw/master//20200514103004.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">8</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">14</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 我</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#官方描述"><span class="toc-number">1.</span> <span class="toc-text">官方描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法介绍"><span class="toc-number">2.</span> <span class="toc-text">用法介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法使用"><span class="toc-number">3.</span> <span class="toc-text">方法使用</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Dioooooooor</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 我</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">数据读取之PlayerPrefs</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-04T03:43:04.083Z" title="发表于 2020-08-04 11:43:04">2020-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-04T12:12:10.624Z" title="更新于 2020-08-04 20:12:10">2020-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Unity/">Unity</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p style="text-indent:2em">在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成...，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等，本章我们介绍的就是Unity自带的PlayerPrefs存储方式。</p>
+
+<a id="more"></a>
+
+<h2 id="官方描述"><a href="#官方描述" class="headerlink" title="官方描述"></a>官方描述</h2><p>Stores and accesses player preferences between game sessions.</p>
+<ul>
+<li>Editor/Standalone </li>
+</ul>
+<p>On macOS PlayerPrefs are stored in ~/Library/Preferences folder, in a file named unity.[company name].[product name].plist, where company and product names are the names set up in Project Settings. The same .plist file is used for both Projects run in the Editor and standalone players.</p>
+<p>On Windows, PlayerPrefs are stored in the registry under HKCU\Software[company name][product name] key, where company and product names are the names set up in Project Settings.</p>
+<p>On Linux, PlayerPrefs can be found in ~/.config/unity3d/[CompanyName]/[ProductName] again using the company and product names specified in the Project Settings.</p>
+<p>On Windows Store Apps, Player Prefs can be found in %userprofile%\AppData\Local\Packages[ProductPackageId]&gt;\LocalState\playerprefs.dat</p>
+<p>On Windows Phone 8, Player Prefs can be found in application’s local folder, See Also: Directory.localFolder</p>
+<p>On Android data is stored (persisted) on the device. The data is saved in SharedPreferences. C#/JavaScript, Android Java and Native code can all access the PlayerPrefs data. The PlayerPrefs data is physically stored in /data/data/pkg-name/shared_prefs/pkg-name.xml.</p>
+<p>On WebGL, PlayerPrefs are stored using the browser’s IndexedDB API.</p>
+<p>在游戏会话之间存储和访问玩家喜好。</p>
+<ul>
+<li>编辑/单机</li>
+</ul>
+<ol>
+<li><p>在macOS上，PlayerPref存储在〜/ Library / Preferences文件夹中，名为unity。[company name]。[product name] .plist，其中公司和产品名称是在“项目设置”中设置的名称。相同的.plist文件用于在编辑器和独立播放器中运行的项目。</p>
+</li>
+<li><p>在Windows上，PlayerPref存储在HKCU \ Software \ [公司名称] \ [产品名称]键下的注册表中，其中公司和产品名称是“项目设置”中设置的名称。</p>
+</li>
+<li><p>在Linux上，可以使用“项目设置”中指定的公司和产品名称，再次在〜/ .config / unity3d / [CompanyName] / [ProductName]中找到PlayerPrefs。</p>
+</li>
+<li><p>在Windows Store Apps中，可以在％userprofile％\ AppData \ Local \ Packages \ [ProductPackageId]&gt; \ LocalState \ playerprefs.dat中找到Player Prefs</p>
+</li>
+<li><p>在Windows Phone 8上，可以在应用程序的本地文件夹中找到Player Prefs，另请参见：Directory.localFolder</p>
+</li>
+<li><p>在Android数据被存储（持久）在设备上。数据保存在SharedPreferences中。 C＃/ JavaScript，Android Java和Native代码都可以访问PlayerPrefs数据。 PlayerPrefs数据实际存储在/data/data/pkg-name/shared_prefs/pkg-name.xml中。</p>
+</li>
+<li><p>在WebGL上，PlayerPrefs使用浏览器的IndexedDB API进行存储。</p>
+</li>
+</ol>
+<h2 id="用法介绍"><a href="#用法介绍" class="headerlink" title="用法介绍"></a>用法介绍</h2><ul>
+<li>静态方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th align="right">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>public static void DeleteAll();</strong></td>
+<td align="right">从首选项中删除所有键和值(谨慎使用)</td>
+</tr>
+<tr>
+<td><strong>public static void DeleteKey(string key)</strong></td>
+<td align="right">从首选项中删除键及其相应的值</td>
+</tr>
+<tr>
+<td><strong>public static float GetFloat(string key, float defaultValue = 0.0F)</strong></td>
+<td align="right">返回与首选项文件中的键对应的值（如果存在）如果不存在，它将返回defaultValue</td>
+</tr>
+<tr>
+<td><strong>public static int GetInt(string key, int defaultValue = 0)</strong></td>
+<td align="right">返回与首选项文件中的键对应的值（如果存在）如果不存在，它将返回defaultValue</td>
+</tr>
+<tr>
+<td><strong>public static string GetString(string key, string defaultValue = “”)</strong></td>
+<td align="right">返回与首选项文件中的键对应的值（如果存在）如果不存在，它将返回defaultValue</td>
+</tr>
+<tr>
+<td><strong>HasKey</strong></td>
+<td align="right">如果在首选项中存在键，则返回true</td>
+</tr>
+<tr>
+<td><strong>Save</strong></td>
+<td align="right">将所有修改的首选项写入磁盘</td>
+</tr>
+<tr>
+<td><strong>public static void SetFloat(string key, float value)</strong></td>
+<td align="right">设置由键标识的首选项的值</td>
+</tr>
+<tr>
+<td><strong>public static void SetInt(string key, int value)</strong></td>
+<td align="right">设置由键标识的首选项的值</td>
+</tr>
+<tr>
+<td><strong>public static void SetString(string key, string value)</strong></td>
+<td align="right">设置由键标识的首选项的值</td>
+</tr>
+<tr>
+<td><font color = red ><strong>注: 首选项(Preferences)指Unity的参数设置面板</strong> </font></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<h2 id="方法使用"><a href="#方法使用" class="headerlink" title="方法使用"></a>方法使用</h2><ul>
+<li><p>由于这个方法比较简单，所以这里引用<a href="http://blog.csdn.net/yimingsilence/article/details/43452471" target="_blank" rel="noopener"><strong>yimingsilence博客</strong></a>中的内容，使用两个脚本，模拟函数的使用情况</p>
+<ul>
+<li><p>脚本一：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Scene1Script</span> : <span class="title">MonoBehaviour</span> </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="comment">//姓名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">string</span> mName=<span class="string">"路人甲"</span>;</span><br><span class="line">    <span class="comment">//年龄</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mAge=<span class="number">20</span>;</span><br><span class="line">    <span class="comment">//成绩</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mGrade=<span class="number">75.5F</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        GUILayout.Label(<span class="string">"Unity3D数据存储示例程序"</span>,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        <span class="comment">//姓名</span></span><br><span class="line">        GUILayout.Label(<span class="string">"请输入姓名："</span>,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        mName=GUILayout.TextField(mName,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        <span class="comment">//年龄</span></span><br><span class="line">        GUILayout.Label(<span class="string">"请输入年龄："</span>,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        mAge=<span class="keyword">int</span>.Parse(GUILayout.TextField(mAge.ToString(),GUILayout.Height(<span class="number">25</span>)));</span><br><span class="line">        <span class="comment">//成绩</span></span><br><span class="line">        GUILayout.Label(<span class="string">"请输入成绩："</span>,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        mGrade=<span class="keyword">float</span>.Parse(GUILayout.TextField(mGrade.ToString(),GUILayout.Height(<span class="number">25</span>)));</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//提交数据</span></span><br><span class="line">        <span class="keyword">if</span>(GUILayout.Button(<span class="string">"提交数据"</span>,GUILayout.Height(<span class="number">25</span>)))</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="comment">//保存数据</span></span><br><span class="line">        PlayerPrefs.SetString(<span class="string">"Name"</span>,mName);</span><br><span class="line">        PlayerPrefs.SetInt(<span class="string">"Age"</span>,mAge);</span><br><span class="line">        PlayerPrefs.SetFloat(<span class="string">"Grade"</span>,mGrade);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//切换到新场景</span></span><br><span class="line">        Application.LoadLevel(<span class="string">"Scene1"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>脚本二：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Scene2Script</span> : <span class="title">MonoBehaviour</span> </span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">string</span> mName;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mAge;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mGrade;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span> (<span class="params"></span>) </span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//读取数据</span></span><br><span class="line">        mName=PlayerPrefs.GetString(<span class="string">"Name"</span>,<span class="string">"DefaultValue"</span>);</span><br><span class="line">        mAge=PlayerPrefs.GetInt(<span class="string">"Age"</span>,<span class="number">0</span>);</span><br><span class="line">        mGrade=PlayerPrefs.GetFloat(<span class="string">"Grade"</span>,<span class="number">0F</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        GUILayout.Label(<span class="string">"Unity3D数据存储示例程序"</span>,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        <span class="comment">//姓名</span></span><br><span class="line">        GUILayout.Label(<span class="string">"姓名："</span>+mName,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        <span class="comment">//年龄</span></span><br><span class="line">        GUILayout.Label(<span class="string">"年龄："</span>+mAge,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        <span class="comment">//成绩</span></span><br><span class="line">        GUILayout.Label(<span class="string">"成绩："</span>+mGrade,GUILayout.Height(<span class="number">25</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//删除数据</span></span><br><span class="line">        <span class="keyword">if</span>(GUILayout.Button(<span class="string">"清除数据"</span>,GUILayout.Height(<span class="number">25</span>)))</span><br><span class="line">        &#123;</span><br><span class="line">            PlayerPrefs.DeleteAll();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//返回Scene0</span></span><br><span class="line">        <span class="keyword">if</span>(GUILayout.Button(<span class="string">"返回场景"</span>,GUILayout.Height(<span class="number">25</span>)))</span><br><span class="line">        &#123;</span><br><span class="line">            Application.LoadLevel(<span class="string">"Scene0"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Dioooooooor</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dioooooooor.github.io/2020/08/04/PlayerPrefs/">https://dioooooooor.github.io/2020/08/04/PlayerPrefs/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://dioooooooor.github.io" target="_blank">Dioooooooor</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96/">数据读取</a><a class="post-meta__tags" href="/tags/PlayerPrefs/">PlayerPrefs</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/04/GIcache/"><img class="prev-cover" data-lazy-src="https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">GI cache（全局光照缓存）</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/04/UIAutomaticSorting/"><img class="next-cover" data-lazy-src="https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">UGUI之Content自动排序与页面滑动</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2017/09/18/XML/" title="数据读取之XML"><img class="relatedPosts_cover" data-lazy-src="https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2017-09-18</div><div class="relatedPosts_title">数据读取之XML</div></div></a></div></div></div></article></main><footer id="footer" style="background-image: url(https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Dioooooooor</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
