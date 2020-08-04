@@ -5,7 +5,7 @@ categories:
 - Unity
 tags:
 - Unity性能优化
-cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityBlackLarge.png
+cover: https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png
 ---
 
 转载声明：原文出自[妈妈说女孩子要自立自强](http://my.csdn.net/candycat1992)的[【Unity技巧】Unity中的优化技术](http://blog.csdn.net/candycat1992/article/details/42127811)，如有侵权，可以联系本人删除。
@@ -86,23 +86,23 @@ cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/ima
 这一步主要是为了针对性能瓶颈中的”顶点处理“一项。这里的几何体就是指组成场景中对象的网格结构。
 
 3D游戏制作都由模型制作开始。而在建模时，有一条我们需要记住：尽可能减少模型中三角形的数目，一些对于模型没有影响、或是肉眼非常难察觉到区别的顶点都要尽可能去掉。例如在下面左图中，正方体内部很多顶点都是不需要的，而把这个模型导入到Unity里就会是右面的情景：     
-![](http://img.blog.csdn.net/20141224210509394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-![](http://img.blog.csdn.net/20141224210509394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224210509394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224211031113?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
  
 
 在Game视图下，我们可以查看场景中的三角形数目和顶点数目：    
-![](http://img.blog.csdn.net/20141224211224046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224211224046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 可以看到一个简单的正方形就产生了这么多顶点，这是我们不希望看到的。
 
 同时，尽可能重用顶点。在很多三维建模软件中，都有相应的优化选项，可以自动优化网格结构。最后优化后，一个正方体可能只剩下8个顶点：      
-![](http://img.blog.csdn.net/20141224210907497?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-![](http://img.blog.csdn.net/20141224210907497?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224210907497?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224211439937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
  
 
 它对应的顶点数和三角形数目如下：    
-![](http://img.blog.csdn.net/20141224211505705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224211505705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
@@ -114,8 +114,8 @@ cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/ima
  
 
 而如果观察它的顶点法线，就会发现，折痕处每个顶点其实包含了两个不同的法线。因此，对于GPU来说，它同样无法理解这样的事情，因此会把顶点一分为二。而相反，Smooth Edge则是下面的情况：        
-![](http://img.blog.csdn.net/20141224213352885?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-![](http://img.blog.csdn.net/20141224213336989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224213352885?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224213336989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
  
 
 对于GPU来说，它本质上只关心有多少个顶点。因此，尽可能减少顶点的数目其实才是我们真正对需要关心的事情。因此，最后一条优化建议就是：**移除不必要的Hard Edge以及纹理衔接，即避免Smoothing splits和UV splits**。
@@ -126,16 +126,16 @@ cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/ima
 LOD技术有点类似于Mipmap技术，不同的是，LOD是对模型建立了一个模型金字塔，根据摄像机距离对象的远近，选择使用不同精度的模型。它的好处是可以在适当的时候大量减少需要绘制的顶点数目。它的缺点同样是需要占用更多的内存，而且如果没有调整好距离的话，可能会造成模拟的突变。
 
 在Unity中，可以通过LOD Group来实现LOD技术：     
-![](http://img.blog.csdn.net/20141226173207281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-![](http://img.blog.csdn.net/20141226173313880?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141226173207281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141226173313880?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
  
 
 
 通过上面的LOD Group面板，我们可以选择需要控制的模型以及距离设置。下面展示了油桶从一个完整网格到简化网格，最后完全被剔除的例子：        
-![](http://img.blog.csdn.net/20141226173626104?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-![](http://img.blog.csdn.net/20141226173638515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-![](http://img.blog.csdn.net/20141226173651796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-![](http://img.blog.csdn.net/20141226173702280?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141226173626104?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img.blog.csdn.net/20141226173638515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img.blog.csdn.net/20141226173651796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img.blog.csdn.net/20141226173702280?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
     
 
 
@@ -163,7 +163,7 @@ LOD技术有点类似于Mipmap技术，不同的是，LOD是对模型建立了�
 像素优化的重点在于减少overdraw。之前提过，overdraw指的就是一个像素被绘制了多次。关键在于控制绘制顺序。
 
 Unity还提供了查看[overdraw的视图](https://docs.unity3d.com/Manual/ViewModes.html)，在Scene视图的Render Mode->Overdraw。当然这里的视图只是提供了查看物体遮挡的层数关系，并不是真正的最终屏幕绘制的overdraw。也就是说，可以理解为它显示的是如果没有使用任何深度检验时的overdraw。这种视图是通过把所有对象都渲染成一个透明的轮廓，通过查看透明颜色的累计程度，来判断物体的遮挡。      
-![](http://img.blog.csdn.net/20141226211843550?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img.blog.csdn.net/20141226211843550?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 上图图，红色越是浓重的地方表示overdraw越严重，而且这里涉及的都是透明物体，这意味着性能将会受到很大影响。
@@ -192,7 +192,7 @@ Unity还提供了查看[overdraw的视图](https://docs.unity3d.com/Manual/ViewM
 实时光照对于移动平台是个非常昂贵的操作。如果只有一个平行光还好，但如果场景中包含了太多光源并且使用了很多多Passes的shader，那么很有可能会造成性能下降。而且在有些机器上，还要面临shader失效的风险。例如，一个场景里如果包含了三个逐像素的点光源，而且使用了逐像素的shader，那么很有可能将Draw Calls提高了三倍，同时也会增加overdraws。这是因为，对于逐像素的光源来说，被这些光源照亮的物体要被再渲染一次。更糟糕的是，无论是静态批处理还是动态批处理（其实文档中只提到了对动态批处理的影响，但不知道为什么实验结果对静态批处理也没有用），对于这种逐像素的pass都无法进行批处理，也就是说，它们会中断批处理。
 
 例如，下面的场景中，四个物体都被标识成了“Static”，它们使用的shader都是自带的Bumped Diffuse。而所有的点光源都被标识成了“Important”，即是逐像素光。可以看到，运行后的Draw Calls是23，而非3。这是因为，只有“Forward Base”的Pass时发生了静态批处理（这里的动态批处理由于多Pass已经完全失效了），节省了一个Draw Calls，而后面的“Forward Add” Pass，每一次渲染都是一个单独的Draw Call（而且可以看到Tris和Verts数目也增加了）：       
-![](http://img.blog.csdn.net/20141226182657719?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img.blog.csdn.net/20141226182657719?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
@@ -226,13 +226,13 @@ Lightmaps的很常见的一种优化策略。它主要用于场景中整体的�
 Unity中有两种批处理方式：一种是动态批处理，一种是静态批处理。对于动态批处理来说，好消息是一切处理都是自动的，不需要我们自己做任何操作，而且物体是可以移动的，但坏消息是，限制很多，可能一不小心我们就会破坏了这种机制，导致Unity无法批处理一些使用了相同材质的物体。对于静态批处理来说，好消息是自由度很高，限制很少，坏消息是可能会占用更多的内存，而且经过静态批处理后的所有物体都不可以再移动了。
 
 首先来说动态批处理。**Unity进行动态批处理的条件是，物体使用同一个材质并且满足一些特定条件**。Unity总是在不知不觉中就为我们做了动态批处理。例如下面的场景：     
-![](http://img.blog.csdn.net/20141224215400873?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224215400873?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
 
 这个场景共包含了4个物体，其中两个箱子使用了同一个材质。可以看到，它的Draw Calls现在是3，并且显示Save by batching是1，也就是说，Unity靠Batching为我们节省了1个Draw Call。下面，我们来把其中一个箱子的大小随便改动一下，看看会发生什么：        
-![](http://img.blog.csdn.net/20141224215802736?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224215802736?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
@@ -244,7 +244,7 @@ Unity中有两种批处理方式：一种是动态批处理，一种是静态批
 * 使用lightmap的物体不会批处理。多passes的shader会中断批处理。接受实时阴影的物体也不会批处理。
 
 上述除了最常见的由于缩放导致破坏批处理的情况，还有就是顶点属性的限制。例如，在上面的场景中我们添加之前未优化后的箱子模型：      s
-![](http://img.blog.csdn.net/20141226153354981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141226153354981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
@@ -252,16 +252,16 @@ Unity中有两种批处理方式：一种是动态批处理，一种是静态批
 
 
 动态批处理的条件这么多，一不小心它就不干了，因此Unity提供了另一个方法，静态批处理。接着上面的例子，我们保持修改后的缩放，但把四个物体的“Static Flag”勾选上：       
-![](http://img.blog.csdn.net/20141224221213156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224221213156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 点击Static后面的三角下拉框，我们会看到其实这一步设置了很多东西，这里我们想要的只是“Batching static”一项。这时我们再看Draw Calls，恩，还是没有变化。但是不要急，我们点击运行，变化出现了：     
-![](http://img.blog.csdn.net/20141224221513742?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224221513742?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
 Draw Calls又回到了3，并且显示Save by batching是1。这就是得利于静态批处理。而且，如果我们在运行时刻查看模型的网格，会发现它们都变成了一个名为Combined Mesh (roo: scene)的东西。这个网格是Unity合并了所有标识为“Static”的物体的结果，在我们的例子里，就是四个物体：      
-![](http://img.blog.csdn.net/20141224222505139?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141224222505139?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
@@ -318,12 +318,12 @@ Draw Calls又回到了3，并且显示Save by batching是1。这就是得利于�
 之前提到过，使用Texture Atlas可以帮助减少Draw Calls，而这些纹理的大小同样是一个需要考虑的问题。在这之前要提到一个问题就是，所有纹理的长宽比最好是正方形，而且长度值最好是2的整数幂。这是因为有很多优化策略只有在这种时候才可以发挥最大效用。
 
 Unity中查看纹理参数可以通过纹理的面板：     
-![](http://img.blog.csdn.net/20141226160748390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141226160748390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
 而调整参数可以通过纹理的Advance面板：       
-![](http://img.blog.csdn.net/20141226160826664?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141226160826664?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
@@ -331,18 +331,18 @@ Unity中查看纹理参数可以通过纹理的面板：
 上面各种参数的说明可以参见[文档](http://docs.unity3d.com/Manual/class-TextureImporter.html)。其中和优化相关的主要有“Generate Mip Maps”、“Max Size”和“Format”几个选项。
 
 “Generate Mip Maps”会为同一张纹理创建出很多不同大小的小纹理，构成一个纹理金字塔。而在游戏中可以根据距离物体的远近，来动态选择使用哪一个纹理。这是因为，在距离物体很远的时候，就算我们使用了非常精细的纹理，但肉眼也是分辨不出来的，这种时候完全可以使用更小、更模糊的纹理来代替，而这大量可以节省访问的像素的数目。但它的缺点是，由于需要为每一个纹理建立一个图像金字塔，因此它会需要占用更多的内存。例如上面的例子，在勾选“Generate Mip Maps”前，内存占用是0.5M，而勾选了“Generate Mip Maps”后，就变成了0.7M。除了内存的占用以外，一些时候我们也不希望使用[Mipmaps](http://zh.wikipedia.org/wiki/Mipmap)，例如GUI纹理等。我们还可以在面板中查看生成的Mip Maps：        
-![](http://img.blog.csdn.net/20141226212907562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141226212907562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
 [Unity](http://docs.unity3d.com/Manual/ViewModes.html)中还提供了查看场景中物体的Mip Maps的使用情况。更确切的说是，展示了物体理想的纹理大小。其中红色表示这个物体可以使用更小的纹理，蓝色表示应该使用更大的纹理。        
-![](http://img.blog.csdn.net/20141226213035909?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://img-blog.csdn.net/20141226213035909?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2FuZHljYXQxOTky/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
 “Max Size”决定了纹理的长宽值，如果我们使用的纹理本身超过了这个最大值，Unity会对其进行缩小来满足这个条件。这里再重复一点，所有纹理的长宽比最好是正方形，而且长度值最好是2的整数幂。这是因为有很多优化策略只有在这种时候才可以发挥最大效用。
 
-“Format”负责纹理使用的压缩模式。通常选择这种自动模式就可以了，Unity会负责根据不同的平台来选择合适的压缩模式。而对于GUI类型的纹理，我们可以根据对画质的要求来选择是否进行压缩，具体可以参见之前[关于画质的文章](http://blog.csdn.net/candycat1992/article/details/22794773)。
+“Format”负责纹理使用的压缩模式。通常选择这种自动模式就可以了，Unity会负责根据不同的平台来选择合适的压缩模式。而对于GUI类型的纹理，我们可以根据对画质的要求来选择是否进行压缩，具体可以参见之前[关于画质的文章](https://blog.csdn.net/candycat1992/article/details/22794773)。
 
 
 我们还可以根据不同的机器来选择使用不同分辨率的纹理，以便让游戏在某些老机器上也可以运行。

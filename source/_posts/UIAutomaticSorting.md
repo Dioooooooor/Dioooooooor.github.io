@@ -7,7 +7,7 @@ tags:
 - UGUI
 - GridLayoutGroup
 - ContentSizeFitter
-cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityBlackLarge.png
+cover: https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png
 ---
 
 ## 功能需求：
@@ -18,16 +18,16 @@ cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/ima
 
 ## 实现方法：
 ### 右键创建Scroll View组件
-![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/47083771.jpg)
+![](https://gitee.com/dioooooooor/ImageHosting/raw/master//47083771.jpg)
 
 ### 修改Scroll View组件的大小，我这边设置的为全屏，并把背景设为了黑色
-![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/2599429.jpg)
+![](https://gitee.com/dioooooooor/ImageHosting/raw/master//2599429.jpg)
 
 ### 把Scroll View组件上的Scroll Rect组件的Content换成Viewport,并且将Viewport设置为null，然后设置滑动条的可视条件，我选择的是permanent(常驻)，这样滑动条就不会隐藏
-![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/54708227.jpg)
+![](https://gitee.com/dioooooooor/ImageHosting/raw/master//54708227.jpg)
 
 ### 在Viewport上添加ContentSizeFitter和GridLayoutGroup脚本，并且将ContentSizeFitter组件上的Horizontal Fit和Vertical Fit选项改成Preferred Size（首选大小）
-![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/40746207.jpg)
+![](https://gitee.com/dioooooooor/ImageHosting/raw/master//40746207.jpg)
 
 ### 完成上面的设置后，一个最基本的可拖动的自动排序界面设置就已经完成了，我们来验证一下，为了验证方便，我们在Content上加上Image，让内容可视化，然后调整GridLayoutGroup脚本上的Cell Size,让Content更大，然后我们运行程序测试
 ![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/49456984.jpg)

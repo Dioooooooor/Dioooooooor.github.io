@@ -5,7 +5,7 @@ category: Unity
 tags:
 - UnityHub
 - 破解
-cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityBlackLarge.png
+cover: https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png
 ---
 
 ## 安装
@@ -16,7 +16,7 @@ cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/ima
 
 安装完成之后许可证是未激活状态
 
-![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityHub.jpg)
+![](https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityHub.jpg)
 
 ## 破解
 
@@ -62,6 +62,6 @@ cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/ima
 
 6. 完成后再次打开Unity Hub，显示许可证安装成功
 
-   ![](https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityHubRegisted.jpg)
+   ![](https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityHubRegisted.jpg)
 
 7. 许可证安装成功并不代表通过UnityHub安装的Unity就是专业版，还是要破解安装的Unity

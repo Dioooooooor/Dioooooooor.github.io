@@ -4,7 +4,7 @@ date: 2017-09-18 23:26:01
 tags:
 - 数据读取
 - XML
-cover: https://raw.githubusercontent.com/Dioooooooor/BlogImageHosting/master/image/UnityBlackLarge.png
+cover: https://gitee.com/dioooooooor/ImageHosting/raw/master//UnityBlackLarge.png
 ---
 
 <p style="text-indent:2em">在Unity游戏中，关于游戏的存档，读档，最高分的记录，排行榜的生成…，这些都离不开数据的存储和读取，在Unity中，使用最多的数据存储包括了，Unity自带的PlayerPrefs，XML,Json，数据库等。之前我们介绍了Unity自带的PlayerPrefs存储方式，这一章，我们来讲讲另一种使用非常广泛的存储方式XML。Xml是Internet环境中跨平台的，依赖于内容的技术，是当前处理结构化文档信息的有力工具。XML是一种简单的数据存储语言，使用一系列简单的标记描述数据，而这些标记可以用方便的方式建立，虽然XML占用的空间比二进制数据要占用更多的空间，但XML极其简单易于掌握和使用。微软也提供了一系列类库来倒帮助我们在应用程序中存储XML文件。</p>

@@ -99,5 +99,7 @@ theme: Butterfly
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git 
-  repo: git@github.com:Dioooooooor/Dioooooooor.github.io.git
+  repo: 
+    github: git@github.com:Dioooooooor/Dioooooooor.github.io.git
+    gitee: git@gitee.com:Dioooooooor/dioooooooor.git
   branch: master
